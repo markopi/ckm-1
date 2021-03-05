@@ -1,0 +1,59 @@
+archetype (adl_version=1.4; uid=027df453-8af6-40e1-b1db-82543a3e37e2)
+	openEHR-EHR-CLUSTER.news2_spo2_skala_dips.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+
+description
+	original_author = <
+		["date"] = <"2021-02-26">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"laget for å brukes i NEWS2 arketypen sin protocol slot. Hensikten er å dekke et konkret valg av SpO2 skala.">
+			keywords = <"NEWS2 SpO2", ...>
+			use = <"Skal utelukkende brukes i NEWS2 arketypen sin protocol slot. Hensikten er å dekke et konkret valg av SpO2 skala.">
+			misuse = <"Skal ikke brukes for å registrere noe annet enn beskrevet over">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"4eaea88b59613a2b70ff87400e41373f">
+		["build_uid"] = <"24c28e93-82d8-3c99-9e32-cee8a57b9a43">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- NEWS2-Valgt SpO2 Skala
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Valgt Spo2 skala
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"NEWS2-Valgt SpO2 Skala">
+					description = <"Arketypen er laget for å dekke dokumentasjon av det konkrete valget kliniker gjør i forhold til SpO2 skala i NEWS2.">
+				>
+				["at0001"] = <
+					text = <"Valgt Spo2 skala">
+					description = <"Hvilke SpO2 skala har bruker lagt til grunn for NEWS2">
+				>
+			>
+		>
+	>
